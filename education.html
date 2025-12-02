@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stavan's Education</title>
+    <style>
+        /* --- GLOBAL & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* GitHub's preferred system font stack */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.5;
+        }
+
+        body {
+            background: #0d1117; /* Primary Background Color (Dark) */
+            color: #c9d1d9; /* Primary Text Color (Light Gray) */
+        }
+
+        /* --- UPDATED LINK STYLES --- */
+        a {
+            /* Soft Blue for clickable items (project titles, repo links) */
+            color: #58a6ff; 
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            /* Slightly lighter blue or gray on hover */
+            color: #8B949E; 
+        }
+
+        /* All other general text links (like in the sidebar details) */
+        .details a {
+            color: #8b949e; /* Use subtle gray for general details */
+        }
+        .details a:hover {
+            color: #c9d1d9;
+        }
+
+        h2 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* --- TOP NAVBAR (Fixed) --- */
+        .top-nav {
+            background: #010409; 
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30363d; 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-nav .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #c9d1d9;
+            margin-right: 15px;
+        }
+
+        .top-nav input {
+            background: #0d1117; 
+            border: 1px solid #30363d; 
+            padding: 6px 12px;
+            border-radius: 6px;
+            width: 250px;
+            color: white;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        .top-nav nav a {
+            margin-left: 15px;
+            color: #c9d1d9;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .top-nav .bell {
+            margin-right: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .pfp-small {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        /* --- LAYOUT CONTAINER --- */
+        .container {
+            display: flex;
+            max-width: 1280px; 
+            margin: auto;
+            margin-top: 25px;
+            padding: 0 20px;
+        }
+
+        /* --- LEFT SIDEBAR (Profile Card) --- */
+        .sidebar {
+            width: 25%;
+            min-width: 250px;
+            margin-right: 32px;
+        }
+
+        .pfp-big {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 50%;
+            border: 4px solid #30363d;
+        }
+
+        .profile-text h2 {
+            font-size: 26px;
+            margin-top: 5px;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .username {
+            color: #8b949e; 
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .follow-btn {
+            display: block;
+            width: 100%;
+            padding: 7px 15px;
+            border: 1px solid #30363d; 
+            background: #21262d; 
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .follow-btn:hover {
+            background: #30363d; 
+        }
+
+        .stats, .details {
+            margin-top: 15px;
+            color: #8b949e; 
+            font-size: 14px;
+            border-top: 1px solid #30363d;
+            padding-top: 15px;
+        }
+        
+        /* --- MAIN CONTENT --- */
+        .main {
+            flex: 1;
+        }
+
+        /* TABS (Navigation) */
+        .tabs {
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 0;
+            display: flex;
+            padding: 0;
+            width: 100%;
+            margin-left: 10px; 
+        }
+
+        .tabs a {
+            padding: 10px 10px 10px 0;
+            margin-right: 15px;
+            cursor: pointer;
+            color: #8b949e;
+            font-weight: 500;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .tabs a:hover {
+            color: #c9d1d9;
+        }
+
+        .tabs .active {
+            color: #c9d1d9;
+        }
+
+        .tabs .active::after {
+            /* Active tab indicator line */
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #f78166; /* GitHub's orange/pink for active tab */
+            border-radius: 2px;
+        }
+
+        /* --- EDUCATION TIMELINE STYLES (New Content) --- */
+        .education-section {
+            padding: 20px 0;
+            margin-top: 25px;
+        }
+
+        .education-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px; 
+            padding-bottom: 30px;
+            border-left: 2px solid #30363D; 
+            margin-left: 8px; 
+        }
+        
+        .timeline-item:last-child {
+            border-left: none;
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px; 
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background-color: #58A6FF; 
+            border: 2px solid #0d1117; 
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .timeline-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #C9D1D9; 
+        }
+
+        .timeline-header .duration {
+            font-size: 12px;
+            color: #8B949E; 
+            font-weight: 400;
+        }
+
+        .timeline-details {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #8B949E; 
+            margin-bottom: 10px;
+        }
+
+        .timeline-details p {
+            margin: 3px 0;
+        }
+
+        .timeline-item.current .timeline-header h3 {
+            color: #58A6FF; 
+        }
+        
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                padding: 0 15px;
+            }
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .pfp-big {
+                max-width: 150px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+        
+        /* Container for the PFP and Dropdown */
+        .pfp-dropdown-container {
+            position: relative; /* Crucial for positioning the dropdown */
+            display: inline-block;
+        }
+
+        .pfp-small {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer; /* Indicate it's clickable */
+            border: 1px solid #30363d; /* Subtle border */
+        }
+
+        /* --- NEW DROPDOWN STYLES --- */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; /* Position below the PFP */
+            right: 0;
+            z-index: 101;
+            background-color: #161b22; /* Slightly lighter dark background */
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            width: 200px;
+            padding: 10px 0;
+            margin-top: 10px; /* Space between PFP and menu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            display: none; /* Hidden by default */
+        }
+
+        .dropdown-menu.visible {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #c9d1d9;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #0d1117; /* Darker hover background */
+            color: #58a6ff;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+
+    <header class="top-nav">
+        <div class="left">
+            <span class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="#C9D1D9" style="margin-right: 10px;">
+                    <path fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.107.825-.26.825-.577 0-.285-.01-1.042-.015-2.04-3.338.724-4.04-1.61-4.04-1.61-.546-1.387-1.334-1.756-1.334-1.756-1.087-.745.084-.73.084-.73 1.205.084 1.838 1.234 1.838 1.234 1.07 1.835 2.793 1.305 3.468.998.107-.775.42-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.94 0-1.31.465-2.38 1.234-3.22-.125-.3-.538-1.52.115-3.178 0 0 1.008-.32 3.303 1.23A11.35 11.35 0 0112 3.317c.944 0 1.874.122 2.72.366 2.295-1.55 3.303-1.23 3.303-1.23.653 1.658.24 2.878.115 3.178.77.84 1.234 1.91 1.234 3.22 0 4.62-2.805 5.625-5.475 5.92.42.36.8.996.8 2.01 0 1.45-.015 2.623-.015 2.974 0 .318.225.684.83.576C20.565 21.802 24 17.3 24 12 24 5.37 18.63 0 12 0z"/>
+                </svg>
+            </span>
+            <input type="text" placeholder="Type / to search">
+            <nav>
+                <a href="#">Pulls</a>
+                <a href="#">Issues</a>
+                <a href="#">Codespaces</a>
+            </nav>
+        </div>
+        <div class="right">
+            <span class="bell">🔔</span>
+            <img src="/images/profile.png" id="pfpToggle" class="pfp-small" alt="Profile Picture">
+            <div id="pfpDropdown" class="dropdown-menu">
+                    <a class="active-user">Signed in as @stavan_dev</a> 
+                    <hr style="border: 0; border-top: 1px solid #30363d; margin: 5px 0;">
+                    <a href="https://www.youtube.com/@stavan__op6337" target="_blank">Switch to YouTube Portfolio</a>
+                    <a href="settings.html">Settings</a>
+                </div>
+                
+        </div>
+    </header>
+
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <img src="/images/Stavan.jpeg" class="pfp-big" alt="Profile Avatar" />
+            <div class="profile-text">
+                <h2>Stavan</h2>
+                <p class="username">@stavan_dev</p>
+            </div>
+            
+            <a href="https://x.com/stavan__op"><button class="follow-btn">Follow</button></a>
+            
+            <p class="bio">
+                Explorer | Developer
+            </p>
+
+            <div class="stats">
+                <span>👥 <b>86</b> followers</span>
+                <span>·</span>
+                <span><b>21</b> following</span>
+            </div>
+
+            <div class="details">
+                <p>📍 Mumbai</p>
+                <p>⏱️ 16:54 — same time</p>
+                <p>📧 <a href="mailto:youremail@gmail.com">youremail@gmail.com</a></p>
+            </div>
+        </aside>
+
+
+        <main class="main">
+            
+            <div class="tabs">
+                <a href="index.html">Overview</a>
+                <a class="active" href="education.html">Education</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="sidehustle.html">Side Hustles</a>
+                <a href="connect.html">Connect</a>
+            </div>
+
+            <section class="education-section">
+                <h2>Education Timeline</h2>
+                
+                <ul class="education-list">
+                    
+                    <li class="timeline-item current">
+                        <div class="timeline-header">
+                            <h3>Current School Grade: 8th Standard</h3>
+                            <span class="duration">2025 — Present</span>
+                        </div>
+                        <div class="timeline-details">
+                            <p><strong>School:</strong> Shree Mavli Mandal High Schoole</p>
+                            <p><strong>Subjects:</strong> Maths, Science, Computer Science</p>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>7th Standard</h3>
+                            <span class="duration">2024 — 2025</span>
+                        </div>
+                        <div class="timeline-details">
+                            <p><strong>School:</strong><a href="https://mavlimandalschool.edu.in/"> Shree Mavli Mandal High School</p></a>
+                            <p><strong>Focus:</strong> Introduction to basic Frontend devlopment.</p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>Primary School</h3>
+                            <span class="duration">2018 — 2023</span>
+                        </div>
+                        <div class="timeline-details">
+                            <p><strong>School:</strong> Shree Mavli Mandal High School</p>
+                            <p><strong>Started:</strong> Basic computer skills.</p>
+                        </div>
+                    </li>
+
+                </ul>
+            </section>
+
+        </main>
+    </div>
+ <script>
+        // 3. Add JavaScript to handle the toggle
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const pfpToggle = document.getElementById('pfpToggle');
+            const dropdownMenu = document.getElementById('pfpDropdown');
+            
+            // Function to toggle the visibility
+            pfpToggle.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('visible');
+            });
+
+            // Close the dropdown if the user clicks outside of it
+            document.addEventListener('click', function(event) {
+                if (!pfpToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
