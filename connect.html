@@ -539,44 +539,33 @@
             </div>
 
             <section class="contact-section">
-                
-                <h2>Send Me a Message</h2>
+    <h2>Send Me a Message</h2>
 
-                <form class="contact-form" action="#" method="POST">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe">
+    <form class="contact-form" action="https://formsubmit.co/stavanhalde@gmail.com" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe">
 
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
 
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required placeholder="Collaboration Request">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" required placeholder="Collaboration Request">
 
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required placeholder="Hello Stavan, I'd like to discuss..."></textarea>
-                    
-                    <button type="submit" class="form-submit-btn">
-                        Send Message
-                    </button>
-                </form>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="Hello Stavan, I'd like to discuss..."></textarea>
+        
+        <!-- Optional: Redirect after submission -->
+        <input type="hidden" name="_next" value="https://stavanhalde.vercel.app/thankyou.html">
 
-                <div class="social-links">
-                    <h2>Connect on Other Platforms</h2>
-                    <a href="https://x.com/stavan__op" target="_blank">
-                        <img src="/images/github.png" alt="Twitter/X" class="social-icon" style="width: 16px; height: 16px; margin-right: 5px;"> Twitter/X
-                    </a>
-                    <a href="https://www.instagram.com/s_t_a_v_a_n_24/" target="_blank">
-                        <img src="/logos/insta.png" alt="Instagram" class="social-icon" style="width: 16px; height: 16px; margin-right: 5px;"> Instagram
-                    </a>
-                    <a href="https://linkedin.com/in/stavan_dev" target="_blank">
-                        <span class="icon">🔗</span> LinkedIn
-                    </a>
-                    <a href="https://youtube.com/stavan_dev" target="_blank">
-                        <span class="icon">▶️</span> YouTube Channel
-                    </a>
-                </div>
+        <!-- Optional: Disable spam bots -->
+        <input type="hidden" name="_captcha" value="false">
+        
+        <button type="submit" class="form-submit-btn">
+            Send Message
+        </button>
+    </form>
+</section>
 
-            </section>
 
         </main>
     </div>
