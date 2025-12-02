@@ -329,6 +329,180 @@
             color: #58a6ff;
         }
 
+        /* --- GLOBAL & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+body {
+    background: #0d1117; 
+    color: #c9d1d9; 
+}
+
+a {
+    color: #58a6ff; 
+    text-decoration: none;
+}
+a:hover {
+    color: #8B949E; 
+}
+
+/* --- TOP NAVBAR --- */
+.top-nav {
+    background: #010409; 
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #30363d; 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+}
+
+.top-nav input {
+    background: #0d1117; 
+    border: 1px solid #30363d; 
+    padding: 6px 12px;
+    border-radius: 6px;
+    width: 260px;
+    color: white;
+    font-size: 14px;
+}
+
+/* Hide search on small screens */
+@media(max-width: 550px){
+    .top-nav input{
+        display:none;
+    }
+}
+
+/* --- LAYOUT CONTAINER --- */
+.container {
+    display: flex;
+    max-width: 1280px; 
+    margin: auto;
+    margin-top: 20px;
+    padding: 0 16px;
+}
+
+/* --- LEFT SIDEBAR --- */
+.sidebar {
+    width: 25%;
+    min-width: 250px;
+    margin-right: 32px;
+}
+
+.pfp-big {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 50%;
+    border: 4px solid #30363d;
+}
+
+/* --- MAIN CONTENT --- */
+.main {
+    flex: 1;
+}
+
+/* --- TABS --- */
+.tabs {
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tabs a {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #8b949e;
+    position: relative;
+}
+.tabs a.active {
+    color: #c9d1d9;
+}
+.tabs a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #f78166;
+}
+
+/* --- HUSTLE CARDS GRID (Perfect Responsive Grid) --- */
+.hustle-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.hustle-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+/* --- RESPONSIVE RULES --- */
+
+/* Tablet Mode */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        padding: 0 16px;
+    }
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+    }
+    .pfp-big {
+        max-width: 150px;
+        margin: auto;
+    }
+}
+
+/* Mobile - FULL GitHub layout */
+@media(max-width: 600px){
+
+    .container{
+        padding:0 10px;
+    }
+
+    .tabs{
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .sidebar{
+        text-align:center;
+    }
+
+    .username{
+        font-size:16px;
+    }
+
+    .pfp-big{
+        max-width:120px;
+    }
+
+    .hustle-card{
+        padding:15px;
+    }
+}
+
+
     </style>
 </head>
 
@@ -342,14 +516,10 @@
                 </svg>
             </span>
             <input type="text" placeholder="Type / to search">
-            <nav>
-                <a href="#">Pulls</a>
-                <a href="#">Issues</a>
-                <a href="#">Codespaces</a>
-            </nav>
+            
         </div>
         <div class="right">
-            <span class="bell">🔔</span>
+           
             <img src="/images/profile.png" class="pfp-small" alt="Profile Picture">
         </div>
     </header>
