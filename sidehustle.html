@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stavan's Side Hustles & Achievements</title>
+    
     <style>
         /* --- GLOBAL & BASE STYLES --- */
         * {
@@ -438,69 +439,130 @@ a:hover {
     background: #f78166;
 }
 
-/* --- HUSTLE CARDS GRID (Perfect Responsive Grid) --- */
-.hustle-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
+ /* --- RESPONSIVENESS --- */
 
-.hustle-card {
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 8px;
-    padding: 18px;
-}
-
-/* --- RESPONSIVE RULES --- */
-
-/* Tablet Mode */
+/* Tablet (≤992px) */
 @media (max-width: 992px) {
+
     .container {
         flex-direction: column;
-        padding: 0 16px;
+        padding: 0 15px;
     }
+
     .sidebar {
         width: 100%;
         margin-right: 0;
+        margin-bottom: 25px;
         text-align: center;
     }
+
     .pfp-big {
-        max-width: 150px;
-        margin: auto;
+        max-width: 180px;
+        margin: 0 auto 15px;
+        display: block;
+    }
+
+    .top-nav input {
+        width: 180px;
+    }
+
+    .tools-grid {
+        justify-content: center;
     }
 }
 
-/* Mobile - FULL GitHub layout */
-@media(max-width: 600px){
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
 
-    .container{
-        padding:0 10px;
+    .top-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
     }
 
-    .tabs{
-        gap: 8px;
+    .top-nav .left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .top-nav input {
+        width: 100%;
+        max-width: 350px;
+        margin-right: 0;
+    }
+
+    /* Tabs become scrollable */
+    .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        margin-left: 0;
+    }
+    .tabs a {
+        padding-right: 20px;
         font-size: 13px;
     }
 
-    .sidebar{
-        text-align:center;
+    /* Main layout */
+    .container {
+        padding: 0 10px;
     }
 
-    .username{
-        font-size:16px;
+    /* Tools grid → 2 columns */
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        gap: 12px;
+        justify-items: center;
     }
 
-    .pfp-big{
-        max-width:120px;
-    }
-
-    .hustle-card{
-        padding:15px;
+    .tool-badge {
+        width: 110px;
+        height: 30px;
     }
 }
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+
+    .pfp-big {
+        max-width: 140px;
+    }
+
+    .profile-text h2 {
+        font-size: 22px;
+    }
+
+    .username {
+        font-size: 16px;
+    }
+
+    .follow-btn {
+        width: 100%;
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .skill-header h3 {
+        font-size: 14px;
+    }
+
+    .skill-item {
+        padding: 12px 0;
+    }
+
+    /* Tools grid → 1 column
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .tool-badge {
+        width: 140px;
+        height: 32px;
+    } */
+}   
+
 
 
     </style>
@@ -578,13 +640,13 @@ a:hover {
                     
                     <div class="hustle-card">
                         <div>
-                            <span class="hustle-tag">Community Project</span>
-                            <h3>Digital Library Initiative</h3>
-                            <p class="hustle-description">Created an index of free educational resources for younger students in my area, reducing homework search time by 40%.</p>
+                            <span class="hustle-tag">Tech Infuencer</span>
+                            <h3>Instagram handle</h3>
+                            <p class="hustle-description">I have tech Instagram hanldle where i post my progress and the projects <a href="https://www.instagram.com/stavan.builds">stavan.builds.</p>
                         </div>
                         <div class="hustle-footer">
-                            <span>Impact: 50+ students served</span>
-                            <span>Date: May 2024</span>
+                            <span>Followers : 16</span>
+                            <span>Date: December 20</span>
                         </div>
                     </div>
 
@@ -612,6 +674,8 @@ a:hover {
                         </div>
                     </div>
 
+                </div>
+                   
                 </div>
             </section>
 
