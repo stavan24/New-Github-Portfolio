@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -609,3 +610,616 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stavan's Skills</title>
+    
+    <style>
+        /* --- GLOBAL & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.5;
+        }
+
+        body {
+            background: #0d1117; 
+            color: #c9d1d9; 
+        }
+
+        a {
+            color: #58a6ff; 
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: #8B949E; 
+        }
+
+        .details a {
+            color: #8b949e; 
+        }
+        .details a:hover {
+            color: #c9d1d9;
+        }
+
+        h2 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* --- TOP NAVBAR (Fixed) --- */
+        .top-nav {
+            background: #010409; 
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30363d; 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-nav .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #c9d1d9;
+            margin-right: 15px;
+        }
+
+        .top-nav input {
+            background: #0d1117; 
+            border: 1px solid #30363d; 
+            padding: 6px 12px;
+            border-radius: 6px;
+            width: 250px;
+            color: white;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        .top-nav nav a {
+            margin-left: 15px;
+            color: #c9d1d9;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .top-nav .bell {
+            margin-right: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .pfp-small {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+        }
+
+        /* --- LAYOUT CONTAINER --- */
+        .container {
+            display: flex;
+            max-width: 1280px; 
+            margin: auto;
+            margin-top: 25px;
+            padding: 0 20px;
+        }
+
+        /* --- LEFT SIDEBAR (Profile Card) --- */
+        .sidebar {
+            width: 25%;
+            min-width: 250px;
+            margin-right: 32px;
+        }
+
+        .pfp-big {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 50%;
+            border: 4px solid #30363d;
+        }
+
+        .profile-text h2 {
+            font-size: 26px;
+            margin-top: 5px;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .username {
+            color: #8b949e; 
+            margin-top: 0;
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .follow-btn {
+            display: block;
+            width: 100%;
+            padding: 7px 15px;
+            border: 1px solid #30363d; 
+            background: #21262d; 
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .follow-btn:hover {
+            background: #30363d; 
+        }
+
+        .stats, .details {
+            margin-top: 15px;
+            color: #8b949e; 
+            font-size: 14px;
+            border-top: 1px solid #30363d;
+            padding-top: 15px;
+        }
+        
+        /* --- MAIN CONTENT --- */
+        .main {
+            flex: 1;
+        }
+
+        /* TABS (Navigation) */
+        .tabs {
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 0;
+            display: flex;
+            padding: 0;
+            width: 100%;
+            margin-left: 10px; 
+        }
+
+        .tabs a {
+            padding: 10px 10px 10px 0;
+            margin-right: 15px;
+            cursor: pointer;
+            color: #8b949e;
+            font-weight: 500;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .tabs a:hover {
+            color: #c9d1d9;
+        }
+
+        .tabs .active {
+            color: #c9d1d9;
+        }
+
+        .tabs .active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #f78166; 
+            border-radius: 2px;
+        }
+        
+        /* --- SKILLS SECTION STYLES --- */
+        .skills-section {
+            padding: 20px 0;
+            margin-left: 10px;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .skill-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .skill-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #C9D1D9;
+        }
+
+        .proficiency-label {
+            font-size: 12px;
+            color: #8B949E;
+        }
+        
+        /* Proficiency Bar Styles */
+        .proficiency-bar-container {
+            background-color: #30363d; 
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .proficiency-bar {
+            height: 100%;
+            border-radius: 4px 0 0 4px; 
+            transition: width 1s ease-out;
+            background: linear-gradient(90deg, #58a6ff, #4078c0); 
+        }
+
+        /* --- TOOLS & SOFTWARE GRID --- */
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 15px;
+        }
+
+        .tool-badge {
+            width: 120px; 
+            height: 28px; 
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        /* --- RESPONSIVENESS (kept for completeness) --- */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                padding: 0 15px;
+            }
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .pfp-big {
+                max-width: 150px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
+        
+        /* Container for the PFP and Dropdown */
+        .pfp-dropdown-container {
+            position: relative; /* Crucial for positioning the dropdown */
+            display: inline-block;
+        }
+
+        .pfp-small {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer; /* Indicate it's clickable */
+            border: 1px solid #30363d; /* Subtle border */
+        }
+
+        /* --- NEW DROPDOWN STYLES --- */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; /* Position below the PFP */
+            right: 0;
+            z-index: 101;
+            background-color: #161b22; /* Slightly lighter dark background */
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            width: 200px;
+            padding: 10px 0;
+            margin-top: 10px; /* Space between PFP and menu */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            display: none; /* Hidden by default */
+        }
+
+        .dropdown-menu.visible {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: #c9d1d9;
+            padding: 8px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #0d1117; /* Darker hover background */
+            color: #58a6ff;
+        }
+
+      /* --- RESPONSIVENESS --- */
+
+/* Tablet (≤992px) */
+@media (max-width: 992px) {
+
+    .container {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .pfp-big {
+        max-width: 180px;
+        margin: 0 auto 15px;
+        display: block;
+    }
+
+    .top-nav input {
+        width: 180px;
+    }
+
+    .tools-grid {
+        justify-content: center;
+    }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+
+    .top-nav {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .top-nav .left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .top-nav input {
+        width: 100%;
+        max-width: 350px;
+        margin-right: 0;
+    }
+
+    /* Tabs become scrollable */
+    .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        margin-left: 0;
+    }
+    .tabs a {
+        padding-right: 20px;
+        font-size: 13px;
+    }
+
+    /* Main layout */
+    .container {
+        padding: 0 10px;
+    }
+
+    /* Tools grid → 2 columns */
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        gap: 12px;
+        justify-items: center;
+    }
+
+    .tool-badge {
+        width: 110px;
+        height: 30px;
+    }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+
+    .pfp-big {
+        max-width: 140px;
+    }
+
+    .profile-text h2 {
+        font-size: 22px;
+    }
+
+    .username {
+        font-size: 16px;
+    }
+
+    .follow-btn {
+        width: 100%;
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .skill-header h3 {
+        font-size: 14px;
+    }
+
+    .skill-item {
+        padding: 12px 0;
+    }
+
+    /* Tools grid → 1 column */
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .tool-badge {
+        width: 140px;
+        height: 32px;
+    }
+}   
+
+
+    </style>
+</head>
+
+<body>
+
+    <header class="top-nav">
+        <div class="left">
+            <span class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="#C9D1D9" style="margin-right: 10px;">
+                    <path fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.107.825-.26.825-.577 0-.285-.01-1.042-.015-2.04-3.338.724-4.04-1.61-4.04-1.61-.546-1.387-1.334-1.756-1.334-1.756-1.087-.745.084-.73.084-.73 1.205.084 1.838 1.234 1.838 1.234 1.07 1.835 2.793 1.305 3.468.998.107-.775.42-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.94 0-1.31.465-2.38 1.234-3.22-.125-.3-.538-1.52.115-3.178 0 0 1.008-.32 3.303 1.23A11.35 11.35 0 0112 3.317c.944 0 1.874.122 2.72.366 2.295-1.55 3.303-1.23 3.303-1.23.653 1.658.24 2.878.115 3.178.77.84 1.234 1.91 1.234 3.22 0 4.62-2.805 5.625-5.475 5.92.42.36.8.996.8 2.01 0 1.45-.015 2.623-.015 2.974 0 .318.225.684.83.576C20.565 21.802 24 17.3 24 12 24 5.37 18.63 0 12 0z"/>
+                </svg>
+            </span>
+            <input type="text" placeholder="Type / to search">
+            
+        </div>
+        <div class="right">
+            
+            <img src="/images/profile.png" id="pfpToggle" class="pfp-small" alt="Profile Picture">
+             <div id="pfpDropdown" class="dropdown-menu">
+                    <a class="active-user">Signed in as @stavan_dev</a> 
+                    <hr style="border: 0; border-top: 1px solid #30363d; margin: 5px 0;">
+                    <a href="https://www.youtube.com/@stavan__op6337" target="_blank">Switch to YouTube Portfolio</a>
+                    <a href="settings.html">Settings</a>
+                </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <img src="/images/Stavan.jpeg" class="pfp-big" alt="Profile Avatar" />
+            <div class="profile-text">
+                <h2>Stavan</h2>
+                <p class="username">@stavan_dev</p>
+            </div>
+            
+            <a href="https://x.com/stavan__op"><button class="follow-btn">Follow</button></a>
+            
+            <p class="bio">
+                Explorer | Developer
+            </p>
+
+            <div class="stats">
+                <span>👥 <b>86</b> followers</span>
+                <span>·</span>
+                <span><b>21</b> following</span>
+            </div>
+
+            <div class="details">
+                <p>📍 Mumbai</p>
+                <p>⏱️ 16:54 — same time</p>
+                <p>📧 <a href="mailto:youremail@gmail.com">youremail@gmail.com</a></p>
+            </div>
+        </aside>
+
+
+        <main class="main">
+            
+            <div class="tabs">
+                <a href="index.html">Overview</a>
+                <a href="education.html">Education</a>
+                <a href="projects.html">Projects</a>
+                <a class="active" href="skills.html">Skills</a>
+                <a href="sidehustle.html">Side Hustles</a>
+                <a href="connect.html">Connect</a>
+            </div>
+
+            <section class="skills-section">
+                
+                <h2>Programming Languages & Frameworks</h2>
+                
+                <ul class="skill-list">
+                    
+                    <li class="skill-item">
+                        <div class="skill-header">
+                            <h3>HTML/CSS</h3>
+                            <span class="proficiency-label">Expert</span>
+                        </div>
+                        <div class="proficiency-bar-container">
+                            <div class="proficiency-bar" style="width: 90%;"></div>
+                        </div>
+                    </li>
+                    
+                    <li class="skill-item">
+                        <div class="skill-header">
+                            <h3>Python</h3>
+                            <span class="proficiency-label">Basic</span>
+                        </div>
+                        <div class="proficiency-bar-container">
+                            <div class="proficiency-bar" style="width: 35%;"></div>
+                        </div>
+                    </li>
+
+                    <li class="skill-item">
+                        <div class="skill-header">
+                            <h3>JavaScript</h3>
+                            <span class="proficiency-label">Intermidiete</span>
+                        </div>
+                        <div class="proficiency-bar-container">
+                            <div class="proficiency-bar" style="width: 75%;"></div>
+                        </div>
+                    </li>
+
+                    
+
+                </ul>
+
+                <h2 style="margin-top: 30px;">Tools & Platforms</h2>
+                
+                <div class="tools-grid">
+                    <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="VSCode" class="tool-badge">
+                    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" class="tool-badge">
+                    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" class="tool-badge">
+                    <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma" class="tool-badge">
+                    
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+ <script>
+        // 3. Add JavaScript to handle the toggle
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const pfpToggle = document.getElementById('pfpToggle');
+            const dropdownMenu = document.getElementById('pfpDropdown');
+            
+            // Function to toggle the visibility
+            pfpToggle.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('visible');
+            });
+
+            // Close the dropdown if the user clicks outside of it
+            document.addEventListener('click', function(event) {
+                if (!pfpToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> 772d130ce87509fb86424049b952834442a486cf
